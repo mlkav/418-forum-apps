@@ -94,7 +94,7 @@ const LoginForm = () => {
       <p className="auth-link">
         Don&apos;t have an account?
         {' '}
-        <Link to="/register">Register here</Link>
+        <Link to="/register">Register here bro</Link>
       </p>
     </div>
   );
