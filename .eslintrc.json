@@ -1,0 +1,73 @@
+// .eslintrc.json
+{
+  "env": {
+    "browser": true,
+    "es2021": true
+  },
+  "extends": [
+    "airbnb",
+    "airbnb/hooks"
+  ],
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "ecmaVersion": "latest",
+    "sourceType": "module"
+  },
+  "plugins": [
+    "react",
+    "jsx-a11y"
+  ],
+  "rules": {
+    "react/react-in-jsx-scope": "off",
+    "react/jsx-filename-extension": [1, { "extensions": [".jsx", ".js"] }],
+    "import/prefer-default-export": "off",
+    "react/prop-types": "warn",
+    "no-console": "warn",
+    "react/jsx-props-no-spreading": "off",
+    "jsx-a11y/anchor-is-valid": "off",
+    "max-len": ["warn", { "code": 100, "ignoreComments": true }],
+    "linebreak-style": "off",
+    "react/button-has-type": "off",
+    "import/extensions": "off",
+    "import/no-unresolved": "off",
+    "jsx-a11y/label-has-associated-control": "off",
+    "no-param-reassign": [
+      "error", 
+      { 
+        "props": true, 
+        "ignorePropertyModificationsFor": ["state"] 
+      }
+    ],
+    "react/function-component-definition": [
+      "error",
+      {
+        "namedComponents": ["function-declaration", "arrow-function"],
+        "unnamedComponents": "arrow-function"
+      }
+    ]
+  },
+  "settings": {
+    "react": {
+      "version": "detect"
+    }
+  },
+  "overrides": [
+    {
+      "files": ["cypress.config.js", "cypress/**/*.js"],
+      "env": {
+        "browser": true,
+        "mocha": true,
+        "node": true
+      },
+      "globals": {
+        "Cypress": "readonly",
+        "cy": "readonly"
+      },
+      "rules": {
+        "import/no-extraneous-dependencies": "off"
+      }
+    }
+  ]
+}
