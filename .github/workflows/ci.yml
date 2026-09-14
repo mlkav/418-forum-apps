@@ -1,0 +1,46 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - main
+      - master
+  pull_request:
+    branches:
+      - main
+      - master
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - name: Install dependencies
+        run: npm ci
+      - name: Run ESLint
+        run: npm run lint
+      - name: Run unit and integration tests
+        run: npm test
+      - name: Build application
+        run: npm run build
+      - name: Run end-to-end tests
+        run: |
+          unset ELECTRON_RUN_AS_NODE
+          npm run preview -- --host 127.0.0.1 --port 3001 > /tmp/forum-preview.log 2>&1 &
+          for attempt in {1..30}; do
+            if curl --fail --silent http://127.0.0.1:3001/ > /dev/null; then
+              break
+            fi
+            if [ "$attempt" -eq 30 ]; then
+              cat /tmp/forum-preview.log
+              exit 1
+            fi
+            sleep 1
+          done
+          npm run e2e
