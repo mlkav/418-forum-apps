@@ -9,7 +9,7 @@ import Loading from '../common/Loading';
 const LoginForm = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const { loading, error } = useSelector((state) => state.auth);
+  const { loading, error, isAuthenticated } = useSelector((state) => state.auth);
 
   const [formData, setFormData] = useState({
     email: '',
@@ -94,7 +94,7 @@ const LoginForm = () => {
       <p className="auth-link">
         Don&apos;t have an account?
         {' '}
-        <Link to="/register">Register here</Link>
+        <Link to="/register">Register here bro</Link>
       </p>
     </div>
   );
