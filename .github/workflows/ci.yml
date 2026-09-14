@@ -11,7 +11,7 @@ on:
       - master
 
 jobs:
-  test:
+  automation-test-job:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
