@@ -1,3 +1,15 @@
+/**
+ * @fileoverview Berkas Pengujian Komponen Form Umum (Common Form Components Unit Tests)
+ *
+ * Skenario Pengujian Utama:
+ * 1. Pengujian Komponen Button:
+ *    - Memastikan tombol merender label dengan benar dan memicu fungsi 'onClick' saat diklik.
+ *    - Memastikan atribut 'disabled' berfungsi untuk menonaktifkan interaksi pada tombol.
+ * 2. Pengujian Komponen Input:
+ *    - Memastikan nilai atribut 'value' ditampilkan dan fungsi 'onChange' dipanggil saat pengguna mengetik.
+ *    - Memastikan komponen merender elemen 'textarea' secara dinamis apabila prop 'as="textarea"' diberikan.
+ */
+
 import {
   render, screen,
 } from '@testing-library/react';

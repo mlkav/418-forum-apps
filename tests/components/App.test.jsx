@@ -1,3 +1,13 @@
+/**
+ * @fileoverview Berkas Pengujian Pemulihan Sesi Aplikasi (App Session Restoration Integration Test)
+ *
+ * Skenario Pengujian Utama:
+ * 1. Pemulihan Sesi Berhasil: Memastikan aplikasi dapat membaca token valid dari localStorage,
+ *    mengambil data profil dari API, memperbarui Redux store, dan menampilkan UI pengguna terautentikasi.
+ * 2. Penanganan Token Tidak Valid: Memastikan aplikasi menghapus token yang kedaluwarsa/invalid
+ *    dari localStorage dan merender navigasi untuk pengguna yang belum login.
+ */
+
 import { configureStore } from '@reduxjs/toolkit';
 import {
   render, screen, waitFor,

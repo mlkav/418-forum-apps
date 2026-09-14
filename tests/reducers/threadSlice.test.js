@@ -1,3 +1,15 @@
+/**
+ * @fileoverview Berkas Pengujian Reducer Thread (Thread Slice Reducer Unit Tests)
+ *
+ * Skenario Pengujian Utama:
+ * 1. Filter Kategori: Memastikan pengaturan dan pembersihan kriteria filter kategori thread (`setFilterCategory`).
+ * 2. Voting Thread: Memastikan pembaruan status upvote, downvote, dan netralisasi vote pada daftar thread (`updateThreadVote`).
+ * 3. Voting Thread Detail: Memastikan array vote pada thread detail yang sedang dibuka tetap independen saat diperbarui.
+ * 4. Voting Komentar: Memastikan status vote (downvote & netralisasi) pada komentar di thread detail diperbarui dengan benar (`updateCommentVote`).
+ * 5. Pengelolaan Komentar Optimis (Optimistic UI): Memastikan alur penambahan sementara (`addCommentToThread`), penggantian dengan data asli dari server (`replaceTempComment`), dan penghapusan komentar temp jika gagal (`removeTempComment`).
+ * 6. Pengayaan Data Pengguna (Enrichment): Memastikan data pemilik thread diisi berdasarkan daftar pengguna, serta memiliki fallback 'Unknown User' jika ID pengguna tidak ditemukan (`enrichThreadsWithUsers`).
+ */
+
 import { describe, expect, it } from 'vitest';
 import threadReducer, {
   addCommentToThread,

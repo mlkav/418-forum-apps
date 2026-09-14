@@ -1,3 +1,14 @@
+/**
+ * @fileoverview Berkas Pengujian Async Thunks Redux Thread (Thread Slice Thunk Unit Tests)
+ *
+ * Skenario Pengujian Utama:
+ * 1. Memuat Daftar Thread (fetchThreads): Memastikan alur aksi `pending` dan `fulfilled` berjalan dengan baik serta mengembalikan array thread dari API.
+ * 2. Memuat Detail Thread (fetchThreadDetail): Memastikan ID thread diteruskan dengan tepat ke fungsi API `getThreadDetail`.
+ * 3. Menambahkan Thread Baru (addThread): Memastikan bidang formulir (title, body, category) terkirim secara akurat ke API `createThread`.
+ * 4. Memuat Daftar Pengguna (fetchUsers): Memastikan pemanggilan API `getUsers` dilakukan satu kali untuk keperluan pengayaan data pemilik thread (enrichment).
+ * 5. Penanganan Error (fetchThreads Rejected): Memastikan kesalahan jaringan/API ditangkap dan dikembalikan dalam bentuk pesan yang mudah dibaca pada payload `rejected`.
+ */
+
 import {
   describe,
   expect,

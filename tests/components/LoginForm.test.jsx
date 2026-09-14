@@ -1,3 +1,14 @@
+/**
+ * @fileoverview Berkas Pengujian Komponen Formulir Login (LoginForm Component Integration & Unit Tests)
+ *
+ * Skenario Pengujian Utama:
+ * 1. Render Elemen Formulir: Memastikan bidang 'Email', 'Password', dan tombol submit 'Login' terender dengan benar.
+ * 2. Interaksi Input Teks: Memastikan bidang input memperbarui nilainya sesuai teks yang diketikkan pengguna.
+ * 3. Penanganan Gagal Login (Credentials Salah): Memastikan pesan kesalahan dari API ditampilkan dalam elemen alert saat autentikasi gagal.
+ * 4. Pemrosesan Alur Login Berhasil: Memastikan token tersimpan di localStorage, state Redux 'isAuthenticated' menjadi true,
+ *    dan pengguna diarahkan kembali ke halaman utama (home).
+ */
+
 import { configureStore } from '@reduxjs/toolkit';
 import {
   fireEvent, render, screen, waitFor,

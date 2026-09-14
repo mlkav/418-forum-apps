@@ -1,3 +1,23 @@
+/**
+ * @fileoverview Berkas Pengujian Async Thunks Redux (Auth, Comment, dan Leaderboard)
+ *
+ * Skenario Pengujian Utama:
+ * 1. Otentikasi (loginUser & registerUser):
+ *    - Menyimpan token ke localStorage dan mengembalikan data pengguna saat login berhasil.
+ *    - Memproses pendaftaran pengguna baru dan mengembalikan payload dari server.
+ * 2. Profil Pengguna (fetchOwnProfile):
+ *    - Mengambil data profil pengguna yang sedang login dari API.
+ * 3. Pemulihan Sesi (restoreAuthSession):
+ *    - Mengabaikan pemanggilan API jika tidak ada token yang tersimpan di localStorage.
+ *    - Memulihkan profil pengguna jika token valid ditemukan di localStorage.
+ *    - Menghapus token dari localStorage dan menangani error jika token sudah kadaluarsa/tidak valid.
+ * 4. Pengelolaan Komentar (addCommentThunk):
+ *    - Mengirim komentar baru ke API berdasarkan threadId dan content.
+ *    - Menangani dan mengembalikan pesan kesalahan yang dapat dibaca jika pembuatan komentar gagal.
+ * 5. Papan Peringkat (fetchLeaderboards):
+ *    - Mengambil dan mengembalikan daftar peringkat (leaderboards) dari API.
+ */
+
 import {
   describe, expect, it, vi, beforeEach,
 } from 'vitest';

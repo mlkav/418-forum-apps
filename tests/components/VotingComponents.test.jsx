@@ -1,3 +1,14 @@
+/**
+ * @fileoverview Berkas Pengujian Komponen Voting (Voting Components Integration & Unit Tests)
+ *
+ * Skenario Pengujian Utama:
+ * 1. Netralisasi Vote Thread pada Item List: Memastikan klik pada tombol berlawanan menetralkan status vote (mengembalikan skor).
+ * 2. Netralisasi Downvote Thread pada Detail: Memastikan downvote dinetralkan terlebih dahulu sebelum dapat memberikan upvote.
+ * 3. Netralisasi dan Perubahan Vote pada Komentar: Memastikan pengguna dapat menetralkan vote komentar aktif dan mengubahnya menjadi downvote.
+ * 4. Pemberian Downvote Komentar dari Status Netral: Memastikan downvote langsung diterapkan jika komentar dalam kondisi netral.
+ * 5. Pencegahan Permintaan Vote Ganda (Race Condition/Pending State): Memastikan tombol vote dinonaktifkan saat proses API sedang berlangsung untuk mencegah panggilan ganda.
+ */
+
 import { configureStore } from '@reduxjs/toolkit';
 import {
   render, screen, waitFor,

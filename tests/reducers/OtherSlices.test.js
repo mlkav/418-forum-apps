@@ -1,3 +1,20 @@
+/**
+ * @fileoverview Berkas Pengujian Reducer Redux (Redux Slice Reducers Unit Tests)
+ *
+ * Skenario Pengujian Utama:
+ * 1. Auth Reducer:
+ *    - Memastikan pembersihan pesan kesalahan autentikasi (`clearError`).
+ *    - Memastikan proses logout menghapus token dari `localStorage` serta mengosongkan status pengguna terautentikasi.
+ *    - Memastikan penyimpan data pengguna setelah aksi login berhasil (`auth/login/fulfilled`).
+ *    - Memastikan pemantauan alur pemulihan sesi (`restoreAuthSession` pending -> fulfilled) berjalan sesuai ekspektasi.
+ *    - Memastikan pembersihan status pengguna jika pemulihan sesi gagal (`restoreAuthSession` rejected).
+ * 2. Comment Reducer:
+ *    - Memastikan pembersihan pesan kesalahan komentar (`clearCommentError`).
+ *    - Memastikan pelacakan status loading dan penanganan kegagalan pembuatan komentar (`addComment` pending -> rejected).
+ * 3. Leaderboard Reducer:
+ *    - Memastikan pemrosesan alur pengambilan leaderboard (`fetchLeaderboards` pending -> fulfilled -> rejected) memperbarui state loading, data leaderboard, dan error.
+ */
+
 import { describe, expect, it } from 'vitest';
 import authReducer, {
   clearError, logout, restoreAuthSession,
